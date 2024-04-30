@@ -1,0 +1,1 @@
+"mcuboot":"/home/mnguyen4000/csse4011/proj/bootloader/mcuboot":"/home/mnguyen4000/csse4011/proj/bootloader/mcuboot/boot/zephyr/sysbuild"
