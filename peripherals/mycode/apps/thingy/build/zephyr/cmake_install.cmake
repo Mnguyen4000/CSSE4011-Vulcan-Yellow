@@ -1,4 +1,4 @@
-# Install script for directory: /home/mnguyen4000/csse4011/proj/zephyr
+# Install script for directory: /home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/zephyr
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,291 +39,291 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/arch/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/arch/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/lib/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/lib/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/soc/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/soc/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/boards/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/boards/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/subsys/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/subsys/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/drivers/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/drivers/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/acpica/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/acpica/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/cmsis/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/cmsis/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/cmsis-dsp/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/cmsis-dsp/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/cmsis-nn/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/cmsis-nn/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/fatfs/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/fatfs/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/altera/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/altera/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/hal_ambiq/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/hal_ambiq/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/atmel/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/atmel/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/hal_espressif/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/hal_espressif/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/hal_ethos_u/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/hal_ethos_u/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/hal_gigadevice/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/hal_gigadevice/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/hal_infineon/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/hal_infineon/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/hal_intel/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/hal_intel/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/microchip/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/microchip/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/hal_nordic/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/hal_nordic/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/nuvoton/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/nuvoton/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/hal_nxp/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/hal_nxp/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/openisa/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/openisa/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/quicklogic/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/quicklogic/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/hal_renesas/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/hal_renesas/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/hal_rpi_pico/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/hal_rpi_pico/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/silabs/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/silabs/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/hal_st/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/hal_st/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/stm32/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/stm32/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/hal_telink/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/hal_telink/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/ti/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/ti/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/hal_wurthelektronik/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/hal_wurthelektronik/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/xtensa/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/xtensa/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/hostap/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/hostap/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/libmetal/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/libmetal/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/liblc3/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/liblc3/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/littlefs/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/littlefs/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/loramac-node/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/loramac-node/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/lvgl/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/lvgl/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/mbedtls/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/mbedtls/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/mcuboot/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/mcuboot/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/mipi-sys-t/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/mipi-sys-t/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/nrf_hw_models/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/nrf_hw_models/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/open-amp/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/open-amp/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/openthread/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/openthread/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/percepio/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/percepio/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/picolibc/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/picolibc/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/segger/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/segger/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/tinycrypt/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/tinycrypt/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/trusted-firmware-m/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/trusted-firmware-m/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/trusted-firmware-a/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/trusted-firmware-a/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/uoscore-uedhoc/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/uoscore-uedhoc/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/zcbor/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/zcbor/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/kernel/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/kernel/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/cmake/flash/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/cmake/flash/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/cmake/usage/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/cmake/usage/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/cmake/reports/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/cmake/reports/cmake_install.cmake")
 endif()
 

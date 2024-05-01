@@ -1,4 +1,4 @@
-# Install script for directory: /home/mnguyen4000/csse4011/proj/zephyr/arch/arm/core/mpu
+# Install script for directory: /home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/zephyr/arch/arm/core/mpu
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

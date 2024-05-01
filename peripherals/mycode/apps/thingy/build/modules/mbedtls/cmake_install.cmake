@@ -1,4 +1,4 @@
-# Install script for directory: /home/mnguyen4000/csse4011/proj/zephyr/modules/mbedtls
+# Install script for directory: /home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/zephyr/modules/mbedtls
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

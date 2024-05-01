@@ -1,4 +1,4 @@
-# Install script for directory: /home/mnguyen4000/csse4011/proj/modules/bsim_hw_models/nrf_hw_models
+# Install script for directory: /home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/modules/bsim_hw_models/nrf_hw_models
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

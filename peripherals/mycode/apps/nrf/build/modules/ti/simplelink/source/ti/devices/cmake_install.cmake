@@ -1,4 +1,4 @@
-# Install script for directory: /home/mnguyen4000/csse4011/proj/modules/hal/ti/simplelink/source/ti/devices
+# Install script for directory: /home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/modules/hal/ti/simplelink/source/ti/devices
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

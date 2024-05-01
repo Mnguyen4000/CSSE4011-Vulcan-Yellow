@@ -13,7 +13,7 @@
 set(SNIPPET_NAMES "cdc-acm-console" "nordic-flpr" "nordic-flpr-xip" "nordic-ppr" "nordic-ppr-xip" "nus-console" "xen_dom0")
 # The paths to all the snippet.yml files. One snippet
 # can have multiple snippet.yml files.
-set(SNIPPET_PATHS "/home/mnguyen4000/csse4011/proj/zephyr/snippets/cdc-acm-console/snippet.yml" "/home/mnguyen4000/csse4011/proj/zephyr/snippets/nordic-flpr-xip/snippet.yml" "/home/mnguyen4000/csse4011/proj/zephyr/snippets/nordic-flpr/snippet.yml" "/home/mnguyen4000/csse4011/proj/zephyr/snippets/nordic-ppr-xip/snippet.yml" "/home/mnguyen4000/csse4011/proj/zephyr/snippets/nordic-ppr/snippet.yml" "/home/mnguyen4000/csse4011/proj/zephyr/snippets/nus-console/snippet.yml" "/home/mnguyen4000/csse4011/proj/zephyr/snippets/xen_dom0/snippet.yml")
+set(SNIPPET_PATHS "/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/zephyr/snippets/cdc-acm-console/snippet.yml" "/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/zephyr/snippets/nordic-flpr-xip/snippet.yml" "/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/zephyr/snippets/nordic-flpr/snippet.yml" "/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/zephyr/snippets/nordic-ppr-xip/snippet.yml" "/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/zephyr/snippets/nordic-ppr/snippet.yml" "/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/zephyr/snippets/nus-console/snippet.yml" "/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/zephyr/snippets/xen_dom0/snippet.yml")
 
 # Create variable scope for snippets build variables
 zephyr_create_scope(snippets)

@@ -50,8 +50,8 @@ struct DataStruct {
 static struct DataStruct data;
 static char connection[20];
 
-static char thingy_addr[20];
-static int found_address = 0;
+static char thingy_addr1[20], thingy_addr2[20];
+static int found_address1 = 0, found_address2 = 0;
 
 
 static uint8_t data_read, thingy;
@@ -66,38 +66,30 @@ static void device_receive(const bt_addr_le_t *addr, int8_t rssi, uint8_t type,
     char value[5];
     bt_addr_le_to_str(addr, addr_str, sizeof(addr_str));
     char* address_only = strtok(addr_str, " ");
+    char string[20] = {ad->data[13],ad->data[14], ad->data[15],ad->data[16],ad->data[17],ad->data[18],ad->data[19]};
 
-    // Finds the address of my thingy52
-    if (ad->data[25] == 'V' && ad->data[26] == 'O' &&
-        ad->data[27] == 'C' && ad->data[28] == '1' && found_address == 0) {
-        strcpy(thingy_addr, address_only);
-        found_address = 1;
-    }
 
-    if (strcmp(address_only, thingy_addr) != 0) {
-        return;
-    }  
 
-    if (ad->data[25] == 'V' && ad->data[26] == 'O' && ad->data[27] == 'C' && ad->data[28] == '1') {
-        thingy = 1;
-        data_read = 0;
-    } else if (ad->data[25] == 'V' && ad->data[26] == 'O' && ad->data[27] == 'C' && ad->data[28] == '2') {
-        thingy = 2;
-        data_read = 0;
-    } else{
-        data_read = 1;
-    }
-    if (data_read == 1){
-        uint8_t data_index = 25;
-        value[0] = ad->data[data_index];
-        value[1] = ad->data[data_index + 1];
-        value[2] = ad->data[data_index + 2];
-        value[3] = ad->data[data_index + 3];
-        value[4] = '\0';
-        printk("VOC1 Detected, TVOC: %s\n", value);
-        if (thingy == 1) {
+    uint8_t data_index = 25;
+    value[0] = ad->data[data_index];
+    value[1] = ad->data[data_index + 1];
+    value[2] = ad->data[data_index + 2];
+    value[3] = ad->data[data_index + 3];
+    value[4] = '\0';
+    if (strcmp(string, "THINGY1") == 0) {
+        if (ad->data[24] == '1') {
+            printk("VOC1 Detected, TVOC: %s\n", value);
             snprintf(data.voc1, 6, "%i", atoi(value));
-        } else if (thingy == 2) {
+        } else if (ad->data[24] == '1') {
+            printk("VOC2 Detected, TVOC: %s\n", value);
+            snprintf(data.voc2, 6, "%i", atoi(value));
+        }
+    } else if (strcmp(string, "THINGY2") == 0) {
+        if (ad->data[24] == '1') {
+            printk("VOC1 Detected, TVOC: %s\n", value);
+            snprintf(data.voc1, 6, "%i", atoi(value));
+        } else if (ad->data[24] == '1') {
+            printk("VOC2 Detected, TVOC: %s\n", value);
             snprintf(data.voc2, 6, "%i", atoi(value));
         }
     }

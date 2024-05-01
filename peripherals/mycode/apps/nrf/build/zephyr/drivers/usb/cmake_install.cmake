@@ -1,4 +1,4 @@
-# Install script for directory: /home/mnguyen4000/csse4011/proj/zephyr/drivers/usb
+# Install script for directory: /home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/zephyr/drivers/usb
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,6 +39,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/nrf/build/zephyr/drivers/usb/common/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/nrf/build/zephyr/drivers/usb/common/cmake_install.cmake")
 endif()
 

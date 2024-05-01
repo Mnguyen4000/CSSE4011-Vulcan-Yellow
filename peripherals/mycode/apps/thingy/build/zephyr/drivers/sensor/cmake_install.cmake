@@ -1,4 +1,4 @@
-# Install script for directory: /home/mnguyen4000/csse4011/proj/zephyr/drivers/sensor
+# Install script for directory: /home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/zephyr/drivers/sensor
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,116 +39,116 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/drivers/sensor/adi/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/drivers/sensor/adi/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/drivers/sensor/ams/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/drivers/sensor/ams/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/drivers/sensor/aosong/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/drivers/sensor/aosong/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/drivers/sensor/asahi_kasei/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/drivers/sensor/asahi_kasei/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/drivers/sensor/bosch/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/drivers/sensor/bosch/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/drivers/sensor/espressif/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/drivers/sensor/espressif/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/drivers/sensor/honeywell/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/drivers/sensor/honeywell/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/drivers/sensor/infineon/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/drivers/sensor/infineon/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/drivers/sensor/ite/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/drivers/sensor/ite/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/drivers/sensor/maxim/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/drivers/sensor/maxim/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/drivers/sensor/meas/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/drivers/sensor/meas/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/drivers/sensor/microchip/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/drivers/sensor/microchip/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/drivers/sensor/nordic/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/drivers/sensor/nordic/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/drivers/sensor/nuvoton/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/drivers/sensor/nuvoton/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/drivers/sensor/nxp/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/drivers/sensor/nxp/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/drivers/sensor/rohm/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/drivers/sensor/rohm/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/drivers/sensor/seeed/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/drivers/sensor/seeed/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/drivers/sensor/sensirion/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/drivers/sensor/sensirion/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/drivers/sensor/silabs/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/drivers/sensor/silabs/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/drivers/sensor/st/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/drivers/sensor/st/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/drivers/sensor/ti/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/drivers/sensor/ti/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/drivers/sensor/vishay/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/drivers/sensor/vishay/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/drivers/sensor/wsen/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/drivers/sensor/wsen/cmake_install.cmake")
 endif()
 

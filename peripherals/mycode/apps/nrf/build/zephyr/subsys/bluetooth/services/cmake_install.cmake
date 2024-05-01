@@ -1,4 +1,4 @@
-# Install script for directory: /home/mnguyen4000/csse4011/proj/zephyr/subsys/bluetooth/services
+# Install script for directory: /home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/zephyr/subsys/bluetooth/services
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

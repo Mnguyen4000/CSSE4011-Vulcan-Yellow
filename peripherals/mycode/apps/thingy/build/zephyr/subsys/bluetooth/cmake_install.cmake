@@ -1,4 +1,4 @@
-# Install script for directory: /home/mnguyen4000/csse4011/proj/zephyr/subsys/bluetooth
+# Install script for directory: /home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/zephyr/subsys/bluetooth
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,21 +39,21 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/subsys/bluetooth/common/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/subsys/bluetooth/common/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/subsys/bluetooth/host/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/subsys/bluetooth/host/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/subsys/bluetooth/controller/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/subsys/bluetooth/controller/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/zephyr/subsys/bluetooth/lib/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/zephyr/subsys/bluetooth/lib/cmake_install.cmake")
 endif()
 

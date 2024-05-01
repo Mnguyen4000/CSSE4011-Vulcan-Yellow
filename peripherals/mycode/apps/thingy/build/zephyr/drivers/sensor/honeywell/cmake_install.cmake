@@ -1,4 +1,4 @@
-# Install script for directory: /home/mnguyen4000/csse4011/proj/zephyr/drivers/sensor/honeywell
+# Install script for directory: /home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/zephyr/drivers/sensor/honeywell
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

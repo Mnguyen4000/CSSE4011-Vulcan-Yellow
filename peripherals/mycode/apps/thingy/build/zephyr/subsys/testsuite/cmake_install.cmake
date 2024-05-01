@@ -1,4 +1,4 @@
-# Install script for directory: /home/mnguyen4000/csse4011/proj/zephyr/subsys/testsuite
+# Install script for directory: /home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/zephyr/subsys/testsuite
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

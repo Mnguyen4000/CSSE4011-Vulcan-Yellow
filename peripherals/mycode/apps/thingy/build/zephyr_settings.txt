@@ -6,9 +6,9 @@
 # and/or the west manifest file.
 #
 # See the Modules guide for more information.
-"DTS_ROOT":"/home/mnguyen4000/csse4011/proj/modules/hal/atmel"
-"DTS_ROOT":"/home/mnguyen4000/csse4011/proj/modules/hal/espressif"
-"DTS_ROOT":"/home/mnguyen4000/csse4011/proj/modules/hal/gigadevice"
-"DTS_ROOT":"/home/mnguyen4000/csse4011/proj/modules/hal/nuvoton"
-"DTS_ROOT":"/home/mnguyen4000/csse4011/proj/modules/hal/nxp"
-"DTS_ROOT":"/home/mnguyen4000/csse4011/proj/modules/hal/stm32"
+"DTS_ROOT":"/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/modules/hal/atmel"
+"DTS_ROOT":"/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/modules/hal/espressif"
+"DTS_ROOT":"/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/modules/hal/gigadevice"
+"DTS_ROOT":"/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/modules/hal/nuvoton"
+"DTS_ROOT":"/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/modules/hal/nxp"
+"DTS_ROOT":"/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/modules/hal/stm32"

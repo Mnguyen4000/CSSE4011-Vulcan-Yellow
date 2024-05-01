@@ -1,4 +1,4 @@
-# Install script for directory: /home/mnguyen4000/csse4011/proj/modules/hal/ti/simplelink
+# Install script for directory: /home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/modules/hal/ti/simplelink
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,6 +39,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/mnguyen4000/csse4011/proj/mycode/apps/thingy/build/modules/ti/simplelink/source/ti/devices/cmake_install.cmake")
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/thingy/build/modules/ti/simplelink/source/ti/devices/cmake_install.cmake")
 endif()
 

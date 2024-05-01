@@ -1,4 +1,4 @@
-# Install script for directory: /home/mnguyen4000/csse4011/proj/modules/lib/open-amp
+# Install script for directory: /home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/modules/lib/open-amp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

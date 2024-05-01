@@ -1,4 +1,4 @@
-# Install script for directory: /home/mnguyen4000/csse4011/proj/zephyr/subsys/stats
+# Install script for directory: /home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/zephyr/subsys/stats
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -14,7 +14,7 @@ debug-runner: jlink
 
 # Common runner configuration values.
 config:
-  board_dir: /home/mnguyen4000/csse4011/proj/zephyr/boards/nordic/nrf52840dk
+  board_dir: /home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/zephyr/boards/nordic/nrf52840dk
   # Build outputs:
   elf_file: zephyr.elf
   hex_file: zephyr.hex

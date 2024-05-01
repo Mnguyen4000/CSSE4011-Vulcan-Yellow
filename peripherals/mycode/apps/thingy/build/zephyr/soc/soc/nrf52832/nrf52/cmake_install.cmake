@@ -1,4 +1,4 @@
-# Install script for directory: /home/mnguyen4000/csse4011/proj/zephyr/soc/nordic/nrf52
+# Install script for directory: /home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/zephyr/soc/nordic/nrf52
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
