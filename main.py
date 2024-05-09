@@ -5,19 +5,19 @@ from datetime import datetime
 dataString = '''
 {
     "1": [{
-         "Timestamp": "13:30:03",
+         "Timestamp": "100000",
          "Temperature": "25",
          "Humidity": "41",
          "TVOC": "232"
          }],
     "2": [{
-         "Timestamp": "13:30:04",
+         "Timestamp": "100000",
          "Temperature": "23",
          "Humidity": "50",
          "TVOC": "259"
          }],
     "3": [{
-         "Timestamp": "13:30:05",
+         "Timestamp": "100000",
          "Temperature": "24",
          "Humidity": "40",
          "TVOC": "230"
@@ -25,15 +25,17 @@ dataString = '''
 }
 '''
 
-# ser = serial.Serial("COM3", 115200)
-# ser.timeout = 1
+ser = serial.Serial("COM3", 115200)
+ser.timeout = 1
 
 class WeatherSensor:
     def __init__(self, sensor_id):
         self.sensor_id = sensor_id
 
     def collect_data(self):
-        data = json.loads(dataString)
+        #data = json.loads(dataString)
+        print(ser.readline().decode("ascii"))
+        data = json.loads(ser.readline().decode("ascii"))
         return data[str(self.sensor_id)]
 
 
@@ -44,8 +46,10 @@ def synchronize_data(sensor_data):
 
     for sensor_id, data_list in sensor_data.items():
         for data in data_list:
-            timestamp_str = f"{current_date} {data['Timestamp']}"
-            timestamp = datetime.strptime(timestamp_str, '%Y-%m-%d %H:%M:%S')
+            current_time_str = datetime.now().strftime("%H:%M:%S")
+            current_time_str += ("." + data['Timestamp'])
+            timestamp_str = f"{current_date} {current_time_str}"
+            timestamp = datetime.strptime(timestamp_str, '%Y-%m-%d %H:%M:%S.%f')
 
             if reference_time is None:
                 reference_time = timestamp
@@ -66,19 +70,20 @@ def synchronize_data(sensor_data):
     return synced_data
 
 if __name__ == '__main__':
-    sensor1 = WeatherSensor(1)
-    sensor2 = WeatherSensor(2)
-    sensor3 = WeatherSensor(3)
+    while (1):
+        sensor1 = WeatherSensor(1)
+        sensor2 = WeatherSensor(2)
+        sensor3 = WeatherSensor(3)
 
-    sensor_data = {
-        1: sensor1.collect_data(),
-        2: sensor2.collect_data(),
-        3: sensor3.collect_data()
-    }
+        sensor_data = {
+            1: sensor1.collect_data(),
+            2: sensor2.collect_data(),
+            3: sensor3.collect_data()
+        }
 
-    synced_data = synchronize_data(sensor_data)
+        synced_data = synchronize_data(sensor_data)
 
-    print(json.dumps(synced_data, indent=2))
+        print(json.dumps(synced_data, indent=2))
 
 
 # print(str(datetime.now()))
