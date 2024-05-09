@@ -81,7 +81,7 @@ def collect_data_for_minute():
     return timestamps
 
 if __name__ == '__main__':
-    while (1):
+    # while (1):
         timestamps = collect_data_for_minute()
     for sensor_id, reading in timestamps.items():
         print(f"{sensor_id}:")
