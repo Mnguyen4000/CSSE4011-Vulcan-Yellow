@@ -44,7 +44,7 @@ class WeatherSensor:
         self.sensor_id = sensor_id
 
     def collect_data(self):
-        # data = json.loads(dataString)
+        #data = json.loads(dataString)
         print(ser.readline().decode("ascii"))
         data = json.loads(ser.readline().decode("ascii"))
         return data[str(self.sensor_id)]
@@ -52,9 +52,12 @@ class WeatherSensor:
 
 def collect_data_for_minute():
     timestamps = {'sensor1': None, 'sensor2': None, 'sensor3': None}
-    # change timedelta to extend or reduce collation interval
-    end_time = datetime.now() + timedelta(seconds=1)
-    while datetime.now() < end_time:
+    current_date = datetime.now().date()  # Retrieve the current date once
+    start_time = datetime.now()  # Record the start time
+    while True:
+        current_time = datetime.now()  # Retrieve the current time for each iteration
+        if (current_time - start_time).seconds >= 1:  # Check if a minute has passed
+            break
         sensor1 = WeatherSensor(1)
         sensor2 = WeatherSensor(2)
         sensor3 = WeatherSensor(3)
@@ -63,10 +66,9 @@ def collect_data_for_minute():
             2: sensor2.collect_data(),
             3: sensor3.collect_data()
         }
-        current_date = datetime.now().date()
         for sensor_id, data_list in sensor_data.items():
             for data in data_list:
-                current_time_str = datetime.now().strftime("%H:%M:%S")
+                current_time_str = current_time.strftime("%H:%M:%S")  # Use the current time
                 current_time_str += ("." + data['Timestamp'])
                 timestamp_str = f"{current_date} {current_time_str}"
                 timestamp = datetime.strptime(timestamp_str, '%Y-%m-%d %H:%M:%S.%f')
@@ -78,9 +80,9 @@ def collect_data_for_minute():
                     while current.next:
                         current = current.next
                     current.next = reading
-                    #delay for testing
                 time.sleep(0.1)
     return timestamps
+
 
 
 def synchronise_timestamps(timestamps):
@@ -101,11 +103,18 @@ def synchronise_timestamps(timestamps):
             current2 = current2.next
         min_length = min(len(sensor1_timestamps), len(sensor2_timestamps))
         for i in range(min_length):
-            diffs.append((sensor2_timestamps[i] - sensor1_timestamps[i]).total_seconds() * 1000)
+            diffs.append((sensor2_timestamps[i] - sensor1_timestamps[i]).total_seconds())
         time_diffs.append(diffs)
 
     print("Time differences between sensors: ")
-    print(time_diffs)
+    print("sensor1 - sensor2")
+    print(time_diffs[0])
+    print("sensor1 - sensor3")
+    print(time_diffs[1])
+    print("sensor2 - sensor3")
+    print(time_diffs[2])
+    print("\n")
+
 
     # Fit linear regression model
     X = np.array(time_diffs).T
@@ -115,9 +124,9 @@ def synchronise_timestamps(timestamps):
     # Correct timestamps using linear regression
     def correct_timestamp(timestamp, sensor_id):
         drift_correction = reg.intercept_ + sum(
-            [coeff * (timestamp - timestamps[s_id].timestamp).total_seconds() * 1000 for s_id, coeff in
+            [coeff * (timestamp - timestamps[s_id].timestamp).total_seconds() for s_id, coeff in
              zip(timestamps.keys(), reg.coef_)])  # Convert to milliseconds
-        return timestamp - timedelta(milliseconds=drift_correction)  # Convert to timedelta in milliseconds
+        return timestamp - timedelta(microseconds=drift_correction)  # Convert to timedelta in milliseconds
 
     # Iterate through original timestamps and correct them
     for sensor_id, reading in timestamps.items():
