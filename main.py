@@ -5,28 +5,74 @@ import time
 import numpy as np
 from sklearn.linear_model import LinearRegression
 
-dataString = '''
-{
-    "1": [{
-         "Timestamp": "100000",
-         "Temperature": "25",
-         "Humidity": "41",
-         "TVOC": "232"
-         }],
-    "2": [{
-         "Timestamp": "100000",
-         "Temperature": "23",
-         "Humidity": "50",
-         "TVOC": "259"
-         }],
-    "3": [{
-         "Timestamp": "100000",
-         "Temperature": "24",
-         "Humidity": "40",
-         "TVOC": "230"
-         }]
-}
-'''
+data_strings = [
+    '''
+    {
+        "1": [{
+             "Timestamp": "100000",
+             "Temperature": "25",
+             "Humidity": "41",
+             "TVOC": "232"
+             }],
+        "2": [{
+             "Timestamp": "110000",
+             "Temperature": "23",
+             "Humidity": "50",
+             "TVOC": "259"
+             }],
+        "3": [{
+             "Timestamp": "120000",
+             "Temperature": "24",
+             "Humidity": "40",
+             "TVOC": "230"
+             }]
+    }
+    ''',
+    '''
+    {
+        "1": [{
+             "Timestamp": "203000",
+             "Temperature": "26",
+             "Humidity": "42",
+             "TVOC": "235"
+             }],
+        "2": [{
+             "Timestamp": "215000",
+             "Temperature": "24",
+             "Humidity": "51",
+             "TVOC": "265"
+             }],
+        "3": [{
+             "Timestamp": "228000",
+             "Temperature": "25",
+             "Humidity": "41",
+             "TVOC": "234"
+             }]
+    }
+    ''',
+    '''
+    {
+        "1": [{
+             "Timestamp": "307000",
+             "Temperature": "27",
+             "Humidity": "40",
+             "TVOC": "232"
+             }],
+        "2": [{
+             "Timestamp": "320000",
+             "Temperature": "25",
+             "Humidity": "49",
+             "TVOC": "259"
+             }],
+        "3": [{
+             "Timestamp": "332000",
+             "Temperature": "26",
+             "Humidity": "39",
+             "TVOC": "230"
+             }]
+    }
+    '''
+]
 
 ser = serial.Serial("COM3", 115200)
 ser.timeout = 1
@@ -40,13 +86,12 @@ class SensorReading:
         self.next = None
 
 class WeatherSensor:
-    def __init__(self, sensor_id):
+    def __init__(self, sensor_id, data_string):
         self.sensor_id = sensor_id
+        self.data_string = data_string
 
     def collect_data(self):
-        #data = json.loads(dataString)
-        print(ser.readline().decode("ascii"))
-        data = json.loads(ser.readline().decode("ascii"))
+        data = json.loads(self.data_string)
         return data[str(self.sensor_id)]
 
 
@@ -55,12 +100,14 @@ def collect_data_for_minute():
     current_date = datetime.now().date()  # Retrieve the current date once
     start_time = datetime.now()  # Record the start time
     while True:
+        # data = data_strings[0]
+        data = ser.readline().decode("ascii")
         current_time = datetime.now()  # Retrieve the current time for each iteration
         if (current_time - start_time).seconds >= 1:  # Check if a minute has passed
             break
-        sensor1 = WeatherSensor(1)
-        sensor2 = WeatherSensor(2)
-        sensor3 = WeatherSensor(3)
+        sensor1 = WeatherSensor(1, data)
+        sensor2 = WeatherSensor(2, data)
+        sensor3 = WeatherSensor(3, data)
         sensor_data = {
             1: sensor1.collect_data(),
             2: sensor2.collect_data(),
@@ -143,29 +190,31 @@ def synchronise_timestamps(timestamps):
 
 if __name__ == '__main__':
     # while (1):
-    timestamps = collect_data_for_minute()
-    for sensor_id, reading in timestamps.items():
-        print(f"{sensor_id}:")
-        current = reading
-        while current:
-            print(
-                f"Timestamp: {current.timestamp}, Temperature: {current.temperature}, Humidity: {current.humidity}, TVOC: {current.tvoc}")
-            current = current.next
+    # for data_string in data_strings:
+        print("New Readings: \n")
+        timestamps = collect_data_for_minute()
+        for sensor_id, reading in timestamps.items():
+            print(f"{sensor_id}:")
+            current = reading
+            while current:
+                print(
+                    f"Timestamp: {current.timestamp}, Temperature: {current.temperature}, Humidity: {current.humidity}, TVOC: {current.tvoc}")
+                current = current.next
 
-    print("\n")
+        print("\n")
 
-    synchronise_timestamps(timestamps)
-    print("\n")
+        synchronise_timestamps(timestamps)
+        print("\n")
 
-    print("Corrected timestamps: \n")
+        print("Corrected timestamps: \n")
 
-    for sensor_id, reading in timestamps.items():
-        print(f"{sensor_id}:")
-        current = reading
-        while current:
-            print(
-                f"Timestamp: {current.timestamp}, Temperature: {current.temperature}, Humidity: {current.humidity}, TVOC: {current.tvoc}")
-            current = current.next
+        for sensor_id, reading in timestamps.items():
+            print(f"{sensor_id}:")
+            current = reading
+            while current:
+                print(
+                    f"Timestamp: {current.timestamp}, Temperature: {current.temperature}, Humidity: {current.humidity}, TVOC: {current.tvoc}")
+                current = current.next
 
 
 
