@@ -59,19 +59,22 @@ for sensor_id in timestamps:
         print(f"Original: {original}, Corrected: {corrected}")
         corrected_timestamps.append(corrected)
 
-# Plot original data points and regression line
-plt.figure(figsize=(10, 6))
-
-# Plot original data points
-for sensor_id, times in timestamps.items():
-    plt.scatter(times, np.arange(len(times)), label=f'Original Sensor {sensor_id}', alpha=0.5)
-
-# Plot regression line
-plt.plot(corrected_timestamps, np.arange(len(corrected_timestamps)), color='green', linewidth=2, label='Regression Line')
-
-plt.xlabel('Timestamps')
-plt.ylabel('Sample Index')
-plt.title('Original Timestamps and Regression Line')
-plt.legend()
-plt.grid(True)
-plt.show()
+# # Plot original data points and regression line
+# plt.figure(figsize=(10, 6))
+#
+# # Plot original data points
+# for sensor_id, times in timestamps.items():
+#     plt.scatter(times, np.arange(len(times)), label=f'Original Sensor {sensor_id}', alpha=0.5)
+#
+#
+#
+#
+# # Plot regression line
+# plt.plot(corrected_timestamps, np.arange(len(corrected_timestamps)), color='green', linewidth=2, label='Regression Line')
+#
+# plt.xlabel('Timestamps')
+# plt.ylabel('Sample Index')
+# plt.title('Original Timestamps and Regression Line')
+# plt.legend()
+# plt.grid(True)
+# plt.show()
