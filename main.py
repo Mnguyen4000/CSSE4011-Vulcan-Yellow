@@ -2,6 +2,8 @@ import json
 import serial
 from datetime import datetime, timedelta
 import time
+import numpy as np
+from sklearn.linear_model import LinearRegression
 
 dataString = '''
 {
@@ -42,7 +44,7 @@ class WeatherSensor:
         self.sensor_id = sensor_id
 
     def collect_data(self):
-        #data = json.loads(dataString)
+        # data = json.loads(dataString)
         print(ser.readline().decode("ascii"))
         data = json.loads(ser.readline().decode("ascii"))
         return data[str(self.sensor_id)]
@@ -80,9 +82,74 @@ def collect_data_for_minute():
                 time.sleep(0.1)
     return timestamps
 
+
+def synchronise_timestamps(timestamps):
+    time_diffs = []
+    sensor_pairs = [('sensor1', 'sensor2'), ('sensor1', 'sensor3'), ('sensor2', 'sensor3')]
+
+    # Calculate time differences between sensors
+    for pair in sensor_pairs:
+        diffs = []
+        sensor1_timestamps = []
+        sensor2_timestamps = []
+        current1 = timestamps[pair[0]]
+        current2 = timestamps[pair[1]]
+        while current1 and current2:
+            sensor1_timestamps.append(current1.timestamp)
+            sensor2_timestamps.append(current2.timestamp)
+            current1 = current1.next
+            current2 = current2.next
+        min_length = min(len(sensor1_timestamps), len(sensor2_timestamps))
+        for i in range(min_length):
+            diffs.append((sensor2_timestamps[i] - sensor1_timestamps[i]).total_seconds() * 1000)
+        time_diffs.append(diffs)
+
+    print("Time differences between sensors: ")
+    print(time_diffs)
+
+    # Fit linear regression model
+    X = np.array(time_diffs).T
+    y = np.arange(len(X))
+    reg = LinearRegression().fit(X, y)
+
+    # Correct timestamps using linear regression
+    def correct_timestamp(timestamp, sensor_id):
+        drift_correction = reg.intercept_ + sum(
+            [coeff * (timestamp - timestamps[s_id].timestamp).total_seconds() * 1000 for s_id, coeff in
+             zip(timestamps.keys(), reg.coef_)])  # Convert to milliseconds
+        return timestamp - timedelta(milliseconds=drift_correction)  # Convert to timedelta in milliseconds
+
+    # Iterate through original timestamps and correct them
+    for sensor_id, reading in timestamps.items():
+        current = reading
+        while current:
+            original = current.timestamp
+            corrected = correct_timestamp(original, sensor_id)
+            print(f"{sensor_id}: Original: {original}, Corrected: {corrected}")
+            current.timestamp = corrected  # Reassign the corrected timestamp to the original list
+            current = current.next
+
+    return timestamps
+
+
 if __name__ == '__main__':
     # while (1):
-        timestamps = collect_data_for_minute()
+    timestamps = collect_data_for_minute()
+    for sensor_id, reading in timestamps.items():
+        print(f"{sensor_id}:")
+        current = reading
+        while current:
+            print(
+                f"Timestamp: {current.timestamp}, Temperature: {current.temperature}, Humidity: {current.humidity}, TVOC: {current.tvoc}")
+            current = current.next
+
+    print("\n")
+
+    synchronise_timestamps(timestamps)
+    print("\n")
+
+    print("Corrected timestamps: \n")
+
     for sensor_id, reading in timestamps.items():
         print(f"{sensor_id}:")
         current = reading
@@ -92,9 +159,9 @@ if __name__ == '__main__':
             current = current.next
 
 
+
 # print(str(datetime.now()))
 # for beacon in data['1']:
 #     print("Temp: " + beacon['Temperature'])
 #     print("Humidity: " + beacon['Humidity'])
 #     print("TVOC: " + beacon['TVOC'])
-
