@@ -50,6 +50,7 @@ class WeatherSensor:
 
 def collect_data_for_minute():
     timestamps = {'sensor1': None, 'sensor2': None, 'sensor3': None}
+    # change timedelta to extend or reduce collation interval
     end_time = datetime.now() + timedelta(seconds=1)
     while datetime.now() < end_time:
         sensor1 = WeatherSensor(1)
