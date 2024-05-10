@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raw Database</title>
+</head>
+<body>
+    <h1>Raw Database</h1>
+
+    <button onclick="returnToDashboard()">Return to Dashboard</button>
+
+    <div id="timestamps">
+        <pre>{{ timestamps | tojson(indent=2) }}</pre>
+    </div>
+
+
+
+    <script>
+        // Function to navigate back to the dashboard
+        function returnToDashboard() {
+            window.location.href = '/';
+        }
+    </script>
+</body>
+</html>
