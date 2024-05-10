@@ -1,0 +1,6 @@
+pyserial
+scikit-learn
+numpy
+Flask
+Flask-SQLAlchemy
+requests
