@@ -4,27 +4,33 @@ from datetime import datetime, timedelta
 import time
 import numpy as np
 from sklearn.linear_model import LinearRegression
+import requests
+
+# True for test string, false for serial comm
+debug = True
+
+FLASK_URL = 'http://localhost:5000'
 
 data_strings = [
     '''
     {
         "1": [{
              "Timestamp": "100000",
-             "Temperature": "25",
-             "Humidity": "41",
-             "TVOC": "232"
+             "Temperature": "32",
+             "Humidity": "66",
+             "TVOC": "1003"
              }],
         "2": [{
              "Timestamp": "110000",
-             "Temperature": "23",
-             "Humidity": "50",
-             "TVOC": "259"
+             "Temperature": "37",
+             "Humidity": "65",
+             "TVOC": "1005"
              }],
         "3": [{
              "Timestamp": "120000",
-             "Temperature": "24",
-             "Humidity": "40",
-             "TVOC": "230"
+             "Temperature": "38",
+             "Humidity": "64",
+             "TVOC": "1009"
              }]
     }
     ''',
@@ -32,21 +38,21 @@ data_strings = [
     {
         "1": [{
              "Timestamp": "203000",
-             "Temperature": "26",
-             "Humidity": "42",
-             "TVOC": "235"
+             "Temperature": "34",
+             "Humidity": "77",
+             "TVOC": "1212"
              }],
         "2": [{
              "Timestamp": "215000",
-             "Temperature": "24",
-             "Humidity": "51",
-             "TVOC": "265"
+             "Temperature": "38",
+             "Humidity": "76",
+             "TVOC": "1122"
              }],
         "3": [{
              "Timestamp": "228000",
-             "Temperature": "25",
-             "Humidity": "41",
-             "TVOC": "234"
+             "Temperature": "35",
+             "Humidity": "77",
+             "TVOC": "1002"
              }]
     }
     ''',
@@ -54,29 +60,29 @@ data_strings = [
     {
         "1": [{
              "Timestamp": "307000",
-             "Temperature": "27",
-             "Humidity": "40",
-             "TVOC": "232"
+             "Temperature": "32",
+             "Humidity": "65",
+             "TVOC": "1111"
              }],
         "2": [{
              "Timestamp": "320000",
-             "Temperature": "25",
-             "Humidity": "49",
-             "TVOC": "259"
+             "Temperature": "38",
+             "Humidity": "65",
+             "TVOC": "1232"
              }],
         "3": [{
              "Timestamp": "332000",
-             "Temperature": "26",
-             "Humidity": "39",
-             "TVOC": "230"
+             "Temperature": "39",
+             "Humidity": "67",
+             "TVOC": "1232"
              }]
     }
     '''
 ]
 
-ser = serial.Serial("COM3", 115200)
-ser.timeout = 1
-
+if debug == False:
+    ser = serial.Serial("COM3", 115200)
+    ser.timeout = 1
 class SensorReading:
     def __init__(self, timestamp, temperature, humidity, tvoc):
         self.timestamp = timestamp
@@ -94,16 +100,18 @@ class WeatherSensor:
         data = json.loads(self.data_string)
         return data[str(self.sensor_id)]
 
-
 def collect_data_for_minute():
     timestamps = {'sensor1': None, 'sensor2': None, 'sensor3': None}
     current_date = datetime.now().date()  # Retrieve the current date once
     start_time = datetime.now()  # Record the start time
     while True:
-        # data = data_strings[0]
-        data = ser.readline().decode("ascii")
+        if debug == False:
+            data = ser.readline().decode("ascii")
+        else:
+            data = data_strings[0]
+
         current_time = datetime.now()  # Retrieve the current time for each iteration
-        if (current_time - start_time).seconds >= 1:  # Check if a minute has passed
+        if (current_time - start_time).seconds >= 10:  # Check if a minute has passed
             break
         sensor1 = WeatherSensor(1, data)
         sensor2 = WeatherSensor(2, data)
@@ -128,8 +136,35 @@ def collect_data_for_minute():
                         current = current.next
                     current.next = reading
                 time.sleep(0.1)
+
+
     return timestamps
 
+def send_timestamps_to_flask(timestamps):
+    url = f"{FLASK_URL}/timestamps"
+    headers = {'Content-Type': 'application/json'}
+
+    # Convert sensor data to the expected format
+    data = {}
+    for sensor_id, readings in timestamps.items():
+        sensor_readings = []
+        current = readings
+        while current:
+            sensor_readings.append({
+                'timestamp': str(current.timestamp),
+                'temperature': current.temperature,
+                'humidity': current.humidity,
+                'tvoc': current.tvoc
+            })
+            current = current.next
+        data[sensor_id] = sensor_readings
+
+    # Send the data to the Flask server
+    response = requests.post(url, data=json.dumps(data), headers=headers)
+    if response.status_code == 200:
+        print("Data sent to Flask successfully.")
+    else:
+        print("Failed to send data to Flask.")
 
 
 def synchronise_timestamps(timestamps):
@@ -185,6 +220,7 @@ def synchronise_timestamps(timestamps):
             current.timestamp = corrected  # Reassign the corrected timestamp to the original list
             current = current.next
 
+    send_timestamps_to_flask(timestamps)
     return timestamps
 
 

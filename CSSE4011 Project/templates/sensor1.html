@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor 3 Readings</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="/static/css/style.css"> <!-- Make sure to link your custom stylesheet here -->
+    <!-- Include Chart.js via CDN -->
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <h2>WE<span class="danger">CAST</span></h2>
+                </div>
+            </div>
+            <div class="sidebar">
+                <a href="/">
+                    <span class="material-symbols-outlined">space_dashboard</span>
+                    <h3>Dashboard</h3>
+                </a>
+                <a href="/sensor1" class="active">
+                    <span class="material-symbols-outlined">sensors</span>
+                    <h3>Sensor 1</h3>
+                </a>
+                <a href="/sensor2">
+                    <span class="material-symbols-outlined">sensors</span>
+                    <h3>Sensor 2</h3>
+                </a>
+                <a href="/sensor3">
+                    <span class="material-symbols-outlined">sensors</span>
+                    <h3>Sensor 3</h3>
+                </a>
+                <a href="/view_timestamps">
+                    <span class="material-symbols-outlined">description</span>
+                    <h3>Database</h3>
+                </a>
+            </div>
+        </aside>
+        <!-- Rest of your HTML content -->
+        <main>
+            <h1>Sensor 1 Readings</h1>
+
+            <!-- Add the textbox for entering the date -->
+            <div class="date">
+                <label>
+                    <input type="date" id="dateInput">
+                </label>
+            </div>
+            <button onclick="filterData()" class="button">Filter</button>
+
+            <div class="recent-orders">
+                <table id="dataTable"> <!-- Add id attribute here -->
+                    <thead>
+                        <tr>
+                            <th>Date/Hour</th>
+                            <th>Timestamp</th>
+                            <th>Temperature</th>
+                            <th>Humidity</th>
+                            <th>TVOC</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for hour, data_points in grouped_data.items() %}
+                        {% for data_point in data_points %}
+                        <tr>
+                            {% if loop.index == 1 %}
+                            <td rowspan="{{ data_points|length }}">{{ hour }}</td>
+                            {% endif %}
+                            <td>{{ data_point.timestamp }}</td>
+                            <td>{{ data_point.temperature }}</td>
+                            <td>{{ data_point.humidity }}</td>
+                            <td>{{ data_point.tvoc }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <a href="#">Return</a>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Function to filter data based on the entered date
+        function filterData() {
+            var inputDate = document.getElementById('dateInput').value;
+            var table = document.getElementById('dataTable');
+            var rows = table.getElementsByTagName('tr');
+
+            // Loop through all table rows
+            for (var i = 0; i < rows.length; i++) {
+                var row = rows[i];
+                var firstCell = row.cells[0]; // Assuming the first cell contains the date
+
+                // If the row contains the entered date, display it; otherwise, hide it
+                if (firstCell) {
+                    var date = firstCell.innerText;
+                    if (date.includes(inputDate)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>
