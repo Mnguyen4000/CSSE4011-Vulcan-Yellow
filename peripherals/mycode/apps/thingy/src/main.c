@@ -12,10 +12,11 @@
 
 #define PRIORITY 7
 #define STACKSIZE 1024
-#define MSG_SIZE 6
+#define MSG_SIZE 7
 
 // Change between '1' and '2'
-#define THINGY52 '2'
+#define THINGY52 '1'
+
 
 
 static const struct bt_data ad[] = {
@@ -29,43 +30,61 @@ static const struct bt_data ad[] = {
 
 K_MSGQ_DEFINE(msgq, MSG_SIZE, 30, 4);
 
-static char thingy_origin = THINGY52;
 
 /*
     Callback function which gets the TVOC sensor data and sends it into a message queue
     Returns: None
 */
-static void process(const struct device *ccs_dev) {
-	struct sensor_value tvoc;
-	if (sensor_sample_fetch(ccs_dev) < 0 ) {
+static void process(const struct device *hts_dev, const struct device *ccs_dev) {
+
+	struct sensor_value temp, hum, tvoc;	
+	char output[32], tenStr[10], thousandStr[10], hundredStr[10], oneStr[10];
+	int thousand, hundred, ten, one;
+	
+	if (sensor_sample_fetch(hts_dev) < 0 ||  sensor_sample_fetch(ccs_dev) < 0 ) {
 		printk("Sensor sample update error\n");
 		return;
 	}
+	if (sensor_channel_get(hts_dev, SENSOR_CHAN_AMBIENT_TEMP, &temp) < 0) {
+		printk("Cannot read HTS221 temperature channel\n");
+		return;
+	}
 
+	if (sensor_channel_get(hts_dev, SENSOR_CHAN_HUMIDITY, &hum) < 0) {
+		printk("Cannot read HTS221 humidity channel\n");
+		return;
+	}
 	if (sensor_channel_get(ccs_dev, SENSOR_CHAN_VOC, &tvoc) < 0) {
 		printk("Cannot read CCS811 TVOC channel\n");
 		return;
 	}
-	char output[32], tenStr[10], thousandStr[10], hundredStr[10], oneStr[10];
-	int thousand, hundred, ten, one;
 
-	/* display TVOC */
-	thousand = tvoc.val1 / 1000;
-	hundred = (tvoc.val1 / 100) % 10;
-	ten = (tvoc.val1 / 10) % 10;
-	one = tvoc.val1 % 10;
 
-	itoa(thousand, thousandStr, 10);
-	itoa(hundred, hundredStr, 10);
-	itoa(ten, tenStr, 10);
-	itoa(one, oneStr, 10);
-	snprintf(output, 6, "%c%c%c%c%c", THINGY52, thousandStr[0], hundredStr[0], tenStr[0], oneStr[0]);
+		snprintf(output, 7, "H%c%2.1f",THINGY52, sensor_value_to_double(&hum));
+		k_msgq_put(&msgq, &output, K_NO_WAIT);
+		
+		snprintf(output, 7, "T%c%2.1f", THINGY52, sensor_value_to_double(&temp));
+		
+		printk("Temp: %s\n",output);
+		printk("Humd: %f\n",sensor_value_to_double(&hum));
+		k_msgq_put(&msgq, &output, K_NO_WAIT);
+		/* display TVOC */
+		thousand = tvoc.val1 / 1000;
+		hundred = (tvoc.val1 / 100) % 10;
+		ten = (tvoc.val1 / 10) % 10;
+		one = tvoc.val1 % 10;
 
-	//thingy_origin = THINGY52;
-    k_msgq_put(&msgq, &output, K_NO_WAIT);
+		itoa(thousand, thousandStr, 10);
+		itoa(hundred, hundredStr, 10);
+		itoa(ten, tenStr, 10);
+		itoa(one, oneStr, 10);	
+		snprintf(output, 7, "V%c%c%c%c%c", THINGY52, thousandStr[0], hundredStr[0], tenStr[0], oneStr[0]);
+		printk("TVOC: %s", output);
+		//thingy_origin = THINGY52;
+		k_msgq_put(&msgq, &output, K_NO_WAIT);	
+		k_msgq_put(&msgq, "======", K_NO_WAIT);
 }
 
-static char thingy_addr[20];
 uint8_t found_address = 0;
 /*
     Callback function which sends out the RSSI of iBeacon Nodes.
@@ -76,31 +95,25 @@ static void device_found(const bt_addr_le_t *addr, int8_t rssi, uint8_t type,
 {
 	
 	char addr_str[BT_ADDR_LE_STR_LEN];
-    char value[6];
+    char value[7];
     bt_addr_le_to_str(addr, addr_str, sizeof(addr_str));
-    char* address_only = strtok(addr_str, " ");
+    //char* address_only = strtok(addr_str, " ");
 
     char string[20] = {ad->data[13],ad->data[14], ad->data[15],ad->data[16],ad->data[17],ad->data[18],ad->data[19]};
 
-    uint8_t data_index = 25;
+    uint8_t data_index = 24;
     value[1] = ad->data[data_index];
     value[2] = ad->data[data_index + 1];
     value[3] = ad->data[data_index + 2];
     value[4] = ad->data[data_index + 3];
-    value[5] = '\0';
+    value[5] = ad->data[data_index + 4];;
+	value[6] = '\0';
 	// If the board 1 receives from 2, 
-    if (strcmp(string, "THINGY1") == 0) {
-		value[0] = '1';
+    if (strcmp(string, "THINGY1") == 0&& value[1] == '1') {
     	k_msgq_put(&msgq, &value, K_NO_WAIT);
-		
-		k_sleep(K_MSEC(1000));
-	} else if (strcmp(string, "THINGY2") == 0) {
-		value[0] = '2';
+	} else if (strcmp(string, "THINGY2") == 0 && value[1] == '2') {
     	k_msgq_put(&msgq, &value, K_NO_WAIT);
-		
-		k_sleep(K_MSEC(1000));
     }
-	
 }
 
 /*
@@ -119,12 +132,12 @@ void thread_update_bt(void) {
 		    0x00, 0x00, 
 			'T', 'H', 'I', 'N', 'G', // Name Space ID {1, 5}
 			'Y', THINGY52, '-', '-', '-', // Name Space ID {6, 10} (10 Bytes)
-			'V', tx_buf[0], tx_buf[1], tx_buf[2], tx_buf[3], tx_buf[4], // Instance ID (6 Bytes)
+			tx_buf[0], tx_buf[1], tx_buf[2], tx_buf[3], tx_buf[4], tx_buf[5], // Instance ID (6 Bytes)
 		    0x00,0x00) // RSU
 		};
 		
 		bt_le_adv_update_data(update_ad, ARRAY_SIZE(update_ad), NULL, 0);
-		k_sleep(K_MSEC(10));
+		k_sleep(K_MSEC(100)); // Need enough time for the sampling to get a sample.
 	}
 	
 }
@@ -154,6 +167,8 @@ static void bt_ready(int err) {
 }
 
 
+
+
 /*
     The main loop.
     Returns: 1 -> Error
@@ -161,12 +176,17 @@ static void bt_ready(int err) {
 */
 int main(void) {
 	const struct device *const ccs_dev = DEVICE_DT_GET_ONE(ams_ccs811);
+	const struct device *const hts_dev = DEVICE_DT_GET_ONE(st_hts221);
 
 	int err;
 	/* Initialize the Bluetooth Subsystem */
 	err = bt_enable(bt_ready);
 	if (err) {
 		printk("Bluetooth init failed (err %d)\n", err);
+	}	
+	if (!device_is_ready(hts_dev)) {
+		printk("Sensor: device not ready.\n");
+		return 0;
 	}
 
 	if (!device_is_ready(ccs_dev)) {
@@ -189,7 +209,7 @@ int main(void) {
 	}
 
 	while (1) {
-		process(ccs_dev);
+		process(hts_dev, ccs_dev);
 		
 		k_sleep(K_MSEC(10));
 	}
