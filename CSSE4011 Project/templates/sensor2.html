@@ -1,12 +1,16 @@
+<!-- Sensor 2 Page -->
+<!-- Created by Ty Behnke, 47069374 -->
+<!-- REFERENCES: https://www.youtube.com/watch?v=BOF79TAIkYQ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Document metadata -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sensor 3 Readings</title>
+    <title>Sensor 2 Readings</title>
+    <!-- External CSS and JavaScript dependencies -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link rel="stylesheet" href="/static/css/style.css"> <!-- Make sure to link your custom stylesheet here -->
-    <!-- Include Chart.js via CDN -->
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
     <div class="container">
@@ -90,8 +94,8 @@
             var table = document.getElementById('dataTable');
             var rows = table.getElementsByTagName('tr');
 
-            // Loop through all table rows
-            for (var i = 0; i < rows.length; i++) {
+            // Loop through all table rows starting from index 1 (excluding the header row)
+            for (var i = 1; i < rows.length; i++) {
                 var row = rows[i];
                 var firstCell = row.cells[0]; // Assuming the first cell contains the date
 
@@ -99,9 +103,9 @@
                 if (firstCell) {
                     var date = firstCell.innerText;
                     if (date.includes(inputDate)) {
-                        row.style.display = '';
+                        row.style.display = ''; // Display the row
                     } else {
-                        row.style.display = 'none';
+                        row.style.display = 'none'; // Hide the row
                     }
                 }
             }
