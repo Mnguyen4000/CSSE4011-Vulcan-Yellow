@@ -1,4 +1,7 @@
-
+/*
+* Created by Ty Behnke, 47069374
+* CSS style sheet
+*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 /* REFERENCES: https://www.youtube.com/watch?v=BOF79TAIkYQ */
 
@@ -172,7 +175,7 @@ aside .sidebar a:last-child{
 
 aside .sidebar a.active{
     background: var(--colour-light);
-    color: var(--colour-primary);
+    color: var(--colour-danger);
     margin-left: 0;
 }
 
@@ -180,16 +183,16 @@ aside .sidebar a.active:before{
     content: "";
     width: 6px;
     height: 100%;
-    background: var(--colour-primary);
+    background: var(--colour-danger);
 }
 
 aside .sidebar a.active span{
-    color: var(--colour-primary);
+    color: var(--colour-danger);
     margin-left: calc(1rem - 3px);
 }
 
 aside .sidebar a:hover{
-    color: var(--colour-primary);
+    color: var(--colour-danger);
 }
 
 aside .sidebar a:hover span{
