@@ -1,21 +1,29 @@
+<!-- Sensor 1 Page -->
+<!-- Created by Ty Behnke, 47069374 -->
+<!-- REFERENCES: https://www.youtube.com/watch?v=BOF79TAIkYQ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Document metadata -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sensor 3 Readings</title>
+    <title>Sensor 1 Readings</title>
+    <!-- External CSS and JavaScript dependencies -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link rel="stylesheet" href="/static/css/style.css"> <!-- Make sure to link your custom stylesheet here -->
-    <!-- Include Chart.js via CDN -->
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
+    <!-- Main container -->
     <div class="container">
+        <!-- Sidebar -->
         <aside>
             <div class="top">
+                <!-- Logo -->
                 <div class="logo">
                     <h2>WE<span class="danger">CAST</span></h2>
                 </div>
             </div>
+            <!-- Sidebar navigation links -->
             <div class="sidebar">
                 <a href="/">
                     <span class="material-symbols-outlined">space_dashboard</span>
@@ -39,18 +47,19 @@
                 </a>
             </div>
         </aside>
-        <!-- Rest of your HTML content -->
+        <!-- Main content -->
         <main>
+            <!-- Sensor 1 Readings header -->
             <h1>Sensor 1 Readings</h1>
-
-            <!-- Add the textbox for entering the date -->
+            <!-- Date input for filtering -->
             <div class="date">
                 <label>
                     <input type="date" id="dateInput">
                 </label>
             </div>
+            <!-- Button for applying date filter -->
             <button onclick="filterData()" class="button">Filter</button>
-
+            <!-- Recent orders table -->
             <div class="recent-orders">
                 <table id="dataTable"> <!-- Add id attribute here -->
                     <thead>
@@ -63,12 +72,14 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- Loop through grouped data and populate table -->
                         {% for hour, data_points in grouped_data.items() %}
                         {% for data_point in data_points %}
                         <tr>
                             {% if loop.index == 1 %}
-                            <td rowspan="{{ data_points|length }}">{{ hour }}</td>
+                            <td rowspan="{{ data_points|length }}">{{ hour }}</td> <!-- Add rowspan for first row in each group -->
                             {% endif %}
+                            <!-- Data cells -->
                             <td>{{ data_point.timestamp }}</td>
                             <td>{{ data_point.temperature }}</td>
                             <td>{{ data_point.humidity }}</td>
@@ -78,11 +89,12 @@
                         {% endfor %}
                     </tbody>
                 </table>
+                <!-- Return link -->
                 <a href="#">Return</a>
             </div>
         </main>
     </div>
-
+    <!-- JavaScript for filtering data -->
     <script>
         // Function to filter data based on the entered date
         function filterData() {
@@ -90,8 +102,8 @@
             var table = document.getElementById('dataTable');
             var rows = table.getElementsByTagName('tr');
 
-            // Loop through all table rows
-            for (var i = 0; i < rows.length; i++) {
+            // Loop through all table rows starting from index 1 (excluding the header row)
+            for (var i = 1; i < rows.length; i++) {
                 var row = rows[i];
                 var firstCell = row.cells[0]; // Assuming the first cell contains the date
 
@@ -99,9 +111,9 @@
                 if (firstCell) {
                     var date = firstCell.innerText;
                     if (date.includes(inputDate)) {
-                        row.style.display = '';
+                        row.style.display = ''; // Display the row
                     } else {
-                        row.style.display = 'none';
+                        row.style.display = 'none'; // Hide the row
                     }
                 }
             }
