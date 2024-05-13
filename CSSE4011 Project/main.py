@@ -7,7 +7,7 @@ from sklearn.linear_model import LinearRegression
 import requests
 
 # True for test string, false for serial comm
-debug = True
+debug = False
 
 FLASK_URL = 'http://localhost:5000'
 
