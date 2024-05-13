@@ -10,3 +10,8 @@ python ./web.py
 
 Terminal 2:
 python ./main.py
+
+On a internet browser, go to url: localhost:5000 to view dashboard.
+
+If weather data is not updating after refresh of page or you cannot view the dashboard, check the output of terminal 1 and connect to the address displayed there,
+then change the flask url in main.py to this address.
