@@ -1,23 +1,30 @@
+<!-- Dashboard Page -->
+<!-- Created by Ty Behnke, 47069374 -->
+<!-- REFERENCES: https://www.youtube.com/watch?v=BOF79TAIkYQ -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Document metadata -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sensor Data Dashboard</title>
+    <!-- External CSS and JavaScript dependencies -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="/static/css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Include Chart.js via CDN -->
 </head>
 <body>
+    <!-- Main container -->
     <div class="container">
+        <!-- Sidebar -->
         <aside>
             <div class="top">
+                <!-- Logo -->
                 <div class="logo">
                     <h2>WE<span class="danger">CAST</span></h2>
                 </div>
             </div>
-
+            <!-- Sidebar navigation links -->
             <div class="sidebar">
                 <a href="/" class="active">
                     <span class="material-symbols-outlined">space_dashboard</span>
@@ -41,18 +48,20 @@
                 </a>
             </div>
         </aside>
-        <!-------------------- END OF ASIDE ------------------------------------->
+        <!-- Sidebar navigation links -->
         <main>
             <h1>Dashboard</h1>
-
+            <!-- Date input for filtering -->
             <div class="date">
                 <label>
                     <input type="date" id="dateInput">
                 </label>
             </div>
+            <!-- Date input for filtering -->
             <button id="filterButton" class="button">Filter</button>
-
+            <!-- Dashboard insights section -->
             <div class="insights">
+                <!-- Temperature insight -->
                 <div class="temperature">
                     <span class="material-symbols-outlined">device_thermostat</span>
                     <div class="middle">
@@ -61,6 +70,7 @@
                             <h1>{{ grouped_data[sorted_keys[-1]].temperature | round(2) }}&degC</h1>
                         </div>
                         <div class="progress">
+                            <!-- Progress circle indicating temperature range -->
                             <div class="high">
                                 <svg>
                                 <circle cx='38' cy='38' r='36'></circle>
@@ -77,9 +87,10 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Timeframe indicator -->
                     <small class="text-muted">Last 24 Hours</small>
                 </div>
-                <!---------------- END Temperature ------------------------------------->
+                <!-- Humidity insight -->
                 <div class="humidity">
                     <span class="material-symbols-outlined">humidity_percentage</span>
                     <div class="middle">
@@ -88,6 +99,7 @@
                             <h1>{{ grouped_data[sorted_keys[-1]].humidity | round(2) }}%</h1>
                         </div>
                         <div class="progress">
+                            <!-- Progress circle indicating humidity range -->
                             <div class="high">
                                 <svg>
                                 <circle cx='38' cy='38' r='36'></circle>
@@ -104,9 +116,10 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Timeframe indicator -->
                     <small class="text-muted">Last 24 Hours</small>
                 </div>
-                <!---------------- END HUMIDITY ------------------------------------->
+                <!-- TVOC (Total Volatile Organic Compounds) insight -->
                 <div class="tvoc">
                     <span class="material-symbols-outlined">air</span>
                     <div class="middle">
@@ -116,6 +129,7 @@
                         </div>
                         <div class="progress">
                             <div class="high">
+                                <!-- Progress circle indicating TVOC range -->
                                 <svg>
                                 <circle cx='38' cy='38' r='36'></circle>
                                 </svg>
@@ -131,12 +145,13 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Timeframe indicator -->
                     <small class="text-muted">Last 24 Hours</small>
                 </div>
-                <!---------------- END TVOC ------------------------------------->
             </div>
-            <!---------------- END INSIGHTS ------------------------------------->
+            <!-- Chart canvas -->
             <canvas id="myChart"></canvas>
+            <!-- JavaScript for chart generation and data filtering -->
             <script>
                 document.addEventListener("DOMContentLoaded", function() {
                     // Extract data from grouped_data for the chart
@@ -178,7 +193,6 @@
                             }]
                         }
                     });
-
 
                     var filterButton = document.getElementById('filterButton');
                     filterButton.addEventListener('click', function() {
@@ -232,7 +246,6 @@
                     }
                 });
             </script>
-
         </main>
     </div>
 </body>
