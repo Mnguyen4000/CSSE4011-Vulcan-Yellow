@@ -1,3 +1,4 @@
+# Created By Ty Behnke, 47069374
 import json
 import serial
 from datetime import datetime, timedelta
@@ -9,8 +10,10 @@ import requests
 # True for test string, false for serial comm
 debug = False
 
+# Host domain
 FLASK_URL = 'http://localhost:5000'
 
+# Test data strings mimicking sensor readings
 data_strings = [
     '''
     {
@@ -80,9 +83,12 @@ data_strings = [
     '''
 ]
 
+# Open Comms Port
 if debug == False:
     ser = serial.Serial("COM3", 115200)
     ser.timeout = 1
+
+# Sensor reading struct
 class SensorReading:
     def __init__(self, timestamp, temperature, humidity, tvoc):
         self.timestamp = timestamp
@@ -91,15 +97,18 @@ class SensorReading:
         self.tvoc = tvoc
         self.next = None
 
+# Sensor struct
 class WeatherSensor:
     def __init__(self, sensor_id, data_string):
         self.sensor_id = sensor_id
         self.data_string = data_string
 
+    # Read json message from NRF
     def collect_data(self):
         data = json.loads(self.data_string)
         return data[str(self.sensor_id)]
 
+# Collate data for specified amount of time
 def collect_data_for_minute():
     timestamps = {'sensor1': None, 'sensor2': None, 'sensor3': None}
     current_date = datetime.now().date()  # Retrieve the current date once
@@ -127,7 +136,8 @@ def collect_data_for_minute():
                 current_time_str += ("." + data['Timestamp'])
                 timestamp_str = f"{current_date} {current_time_str}"
                 timestamp = datetime.strptime(timestamp_str, '%Y-%m-%d %H:%M:%S.%f')
-                reading = SensorReading(timestamp, float(data['Temperature']), float(data['Humidity']), float(data['TVOC']))
+                reading = SensorReading(timestamp, float(data['Temperature']),
+                                        float(data['Humidity']), float(data['TVOC']))
                 if timestamps[f'sensor{sensor_id}'] is None:
                     timestamps[f'sensor{sensor_id}'] = reading
                 else:
@@ -136,10 +146,9 @@ def collect_data_for_minute():
                         current = current.next
                     current.next = reading
                 time.sleep(0.1)
-
-
     return timestamps
 
+# Function to send sensor data to Flask
 def send_timestamps_to_flask(timestamps):
     url = f"{FLASK_URL}/timestamps"
     headers = {'Content-Type': 'application/json'}
@@ -166,7 +175,7 @@ def send_timestamps_to_flask(timestamps):
     else:
         print("Failed to send data to Flask.")
 
-
+# Function to synchronize timestamps among sensors
 def synchronise_timestamps(timestamps):
     time_diffs = []
     sensor_pairs = [('sensor1', 'sensor2'), ('sensor1', 'sensor3'), ('sensor2', 'sensor3')]
@@ -187,7 +196,7 @@ def synchronise_timestamps(timestamps):
         for i in range(min_length):
             diffs.append((sensor2_timestamps[i] - sensor1_timestamps[i]).total_seconds())
         time_diffs.append(diffs)
-
+    # Log synchronisation information
     print("Time differences between sensors: ")
     print("sensor1 - sensor2")
     print(time_diffs[0])
@@ -196,8 +205,6 @@ def synchronise_timestamps(timestamps):
     print("sensor2 - sensor3")
     print(time_diffs[2])
     print("\n")
-
-
     # Fit linear regression model
     X = np.array(time_diffs).T
     y = np.arange(len(X))
@@ -225,10 +232,10 @@ def synchronise_timestamps(timestamps):
 
 
 if __name__ == '__main__':
-    # while (1):
-    # for data_string in data_strings:
+    while (1):
         print("New Readings: \n")
         timestamps = collect_data_for_minute()
+        # Log data collation
         for sensor_id, reading in timestamps.items():
             print(f"{sensor_id}:")
             current = reading
@@ -238,10 +245,9 @@ if __name__ == '__main__':
                 current = current.next
 
         print("\n")
-
+        # Perform time synchronisation on data
         synchronise_timestamps(timestamps)
         print("\n")
-
         print("Corrected timestamps: \n")
 
         for sensor_id, reading in timestamps.items():
@@ -251,11 +257,3 @@ if __name__ == '__main__':
                 print(
                     f"Timestamp: {current.timestamp}, Temperature: {current.temperature}, Humidity: {current.humidity}, TVOC: {current.tvoc}")
                 current = current.next
-
-
-
-# print(str(datetime.now()))
-# for beacon in data['1']:
-#     print("Temp: " + beacon['Temperature'])
-#     print("Humidity: " + beacon['Humidity'])
-#     print("TVOC: " + beacon['TVOC'])
