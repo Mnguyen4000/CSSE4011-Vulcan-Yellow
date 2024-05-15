@@ -89,6 +89,11 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
+  include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/nrf/build/zephyr/drivers/i2c/cmake_install.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for the subdirectory.
   include("/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/nrf/build/zephyr/drivers/pinctrl/cmake_install.cmake")
 endif()
 

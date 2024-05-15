@@ -762,6 +762,7 @@
   group1 {
    psels = <((((((0) * 32U) + (26)) & 0x7FU) << 0U) | ((12U & 0xFFFFU) << 16U))>,
     <((((((0) * 32U) + (27)) & 0x7FU) << 0U) | ((11U & 0xFFFFU) << 16U))>;
+            bias-pull-up;
   };
  };
 
@@ -1072,7 +1073,7 @@ arduino_serial: &uart1 {
  pinctrl-names = "default", "sleep";
 };
 
-arduino_i2c: &i2c0 {
+&i2c0 {
  compatible = "nordic,nrf-twi";
  status = "okay";
  pinctrl-0 = <&i2c0_default>;
@@ -1083,7 +1084,7 @@ arduino_i2c: &i2c0 {
 &i2c1 {
  compatible = "nordic,nrf-twi";
 
-
+ status = "okay";
  pinctrl-0 = <&i2c1_default>;
  pinctrl-1 = <&i2c1_sleep>;
  pinctrl-names = "default", "sleep";

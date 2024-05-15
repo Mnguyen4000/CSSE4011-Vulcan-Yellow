@@ -207,6 +207,9 @@
 /home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/nrf/build/zephyr/drivers/gpio/CMakeFiles/drivers__gpio.dir
 /home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/nrf/build/zephyr/drivers/gpio/CMakeFiles/edit_cache.dir
 /home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/nrf/build/zephyr/drivers/gpio/CMakeFiles/rebuild_cache.dir
+/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/nrf/build/zephyr/drivers/i2c/CMakeFiles/drivers__i2c.dir
+/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/nrf/build/zephyr/drivers/i2c/CMakeFiles/edit_cache.dir
+/home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/nrf/build/zephyr/drivers/i2c/CMakeFiles/rebuild_cache.dir
 /home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/nrf/build/zephyr/drivers/pinctrl/CMakeFiles/drivers__pinctrl.dir
 /home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/nrf/build/zephyr/drivers/pinctrl/CMakeFiles/edit_cache.dir
 /home/mnguyen4000/CSSE4011-Vulcan-Yellow/peripherals/mycode/apps/nrf/build/zephyr/drivers/pinctrl/CMakeFiles/rebuild_cache.dir

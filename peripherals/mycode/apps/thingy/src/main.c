@@ -101,13 +101,15 @@ static void device_found(const bt_addr_le_t *addr, int8_t rssi, uint8_t type,
 
     char string[20] = {ad->data[13],ad->data[14], ad->data[15],ad->data[16],ad->data[17],ad->data[18],ad->data[19]};
 
-    uint8_t data_index = 24;
-    value[1] = ad->data[data_index];
-    value[2] = ad->data[data_index + 1];
-    value[3] = ad->data[data_index + 2];
-    value[4] = ad->data[data_index + 3];
-    value[5] = ad->data[data_index + 4];;
-	value[6] = '\0';
+    uint8_t data_index = 23;
+    value[0] = ad->data[data_index];
+    value[1] = ad->data[data_index + 1];
+    value[2] = ad->data[data_index + 2];
+    value[3] = ad->data[data_index + 3];
+    value[4] = ad->data[data_index + 4];
+    value[5] = ad->data[data_index + 5];
+    value[6] = '\0';
+    
 	// If the board 1 receives from 2, 
     if (strcmp(string, "THINGY1") == 0&& value[1] == '1') {
     	k_msgq_put(&msgq, &value, K_NO_WAIT);
