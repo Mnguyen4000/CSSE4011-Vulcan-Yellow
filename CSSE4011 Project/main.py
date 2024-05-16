@@ -11,7 +11,7 @@ import requests
 debug = False
 
 # Host domain
-FLASK_URL = 'http://localhost:5000'
+FLASK_URL = 'http://127.0.0.1:5000'
 
 # Test data strings mimicking sensor readings
 data_strings = [
@@ -120,7 +120,7 @@ def collect_data_for_minute():
             data = data_strings[0]
 
         current_time = datetime.now()  # Retrieve the current time for each iteration
-        if (current_time - start_time).seconds >= 10:  # Check if a minute has passed
+        if (current_time - start_time).seconds >= 5:  # Check if a minute has passed
             break
         sensor1 = WeatherSensor(1, data)
         sensor2 = WeatherSensor(2, data)
@@ -215,7 +215,11 @@ def synchronise_timestamps(timestamps):
         drift_correction = reg.intercept_ + sum(
             [coeff * (timestamp - timestamps[s_id].timestamp).total_seconds() for s_id, coeff in
              zip(timestamps.keys(), reg.coef_)])  # Convert to milliseconds
-        return timestamp - timedelta(microseconds=drift_correction)  # Convert to timedelta in milliseconds
+        try:
+            return timestamp - timedelta(microseconds=drift_correction)  # Convert to timedelta in milliseconds
+        except OverflowError:
+            return timestamp
+
 
     # Iterate through original timestamps and correct them
     for sensor_id, reading in timestamps.items():
